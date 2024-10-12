@@ -1,4 +1,7 @@
 "use server";
+
+import { auth, signIn, signOut } from "@/auth";
+
 const fetchAllProductsAction = async () => {
   try {
     const result = await fetch("https://dummyjson.com/products");
@@ -12,4 +15,13 @@ const fetchAllProductsAction = async () => {
   }
 };
 
-export { fetchAllProductsAction };
+const signInAction = async () => {
+  await signIn("github");
+};
+
+
+const signOutAction = async () => {
+  await signOut();
+};
+
+export { fetchAllProductsAction, signInAction, signOutAction };
